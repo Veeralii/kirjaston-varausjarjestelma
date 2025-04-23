@@ -1,2 +1,15 @@
-@import url('./main-layout.css');
-@import url('./views/master-detail-view.css');
+/* Muokkaa globaalisti kaikkien tekstikenttien väriä */
+vaadin-text-field {
+    --lumo-primary-text-color: black; /* Voit vaihtaa tämän värin haluamaksesi */
+}
+
+/* Muokkaa kaikkien nappien taustaväri tummanpinkiksi ja tekstin väri valkoiseksi */
+vaadin-button {
+    --lumo-primary-color: #D5006D; /* Tummanpunainen väri */
+    --lumo-primary-text-color: white; /* Valkoinen teksti */
+}
+
+/* Muokkaa kaikkien layouttejen taustaväri vaaleanpunaiseksi */
+vaadin-vertical-layout {
+    background-color: #F8BBD0; /* Vaaleanpunainen taustaväri */
+}

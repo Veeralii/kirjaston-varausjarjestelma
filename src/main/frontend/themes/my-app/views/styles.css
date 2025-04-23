@@ -1,0 +1,10 @@
+/* @import url('./main-layout.css');
+@import url('./views/master-detail-view.css'); */
+:host {
+    --lumo-primary-color: teal;
+}
+
+.grid {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}

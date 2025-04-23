@@ -98,3 +98,11 @@ insert into sample_person(version, id,first_name,last_name,email,phone,date_of_b
 insert into sample_person(version, id,first_name,last_name,email,phone,date_of_birth,occupation,role,important) values (1, 98,'Earl','Giovannoni','earl.giovannoni@lojet.ge','(433) 862-3076','1989-03-09','Auto Service Station Attendant','Manager',false)
 insert into sample_person(version, id,first_name,last_name,email,phone,date_of_birth,occupation,role,important) values (1, 99,'Helen','Zanieri','helen.zanieri@ukve.tn','(619) 506-4452','1970-07-22','Healthcare Social Worker','External',false)
 insert into sample_person(version, id,first_name,last_name,email,phone,date_of_birth,occupation,role,important) values (1, 100,'Agnes','Toccafondi','agnes.toccafondi@viipo.ae','(616) 688-6883','1972-08-10','Comedian','External',false)
+
+
+INSERT INTO library_card(card_number, owner_id) VALUES ('1234567890', 1)
+INSERT INTO library_card(card_number, owner_id) VALUES ('09870000321', 2)
+INSERT INTO library_card(card_number, owner_id) VALUES ('1299999967890', 3)
+INSERT INTO library_card(card_number, owner_id) VALUES ('0999988654321', 4)
+INSERT INTO library_card(card_number, owner_id) VALUES ('9999967890', 5)
+INSERT INTO library_card(card_number, owner_id) VALUES ('66666654321', 6)

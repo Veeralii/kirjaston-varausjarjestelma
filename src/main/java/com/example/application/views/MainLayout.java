@@ -1,5 +1,6 @@
 package com.example.application.views;
 
+import com.example.application.views.masterdetail.LibraryCardView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -11,6 +12,8 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.Layout;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.flow.server.menu.MenuConfiguration;
 import com.vaadin.flow.server.menu.MenuEntry;
@@ -20,7 +23,7 @@ import java.util.List;
 /**
  * The main view is a top-level placeholder for other views.
  */
-@Layout
+
 @AnonymousAllowed
 public class MainLayout extends AppLayout {
 
@@ -54,15 +57,11 @@ public class MainLayout extends AppLayout {
 
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
+        // Luo SideNavItem ja lisää siihen RouterLink
+        SideNavItem libraryCardItem = new SideNavItem("Library Cards", LibraryCardView.class);
+        nav.addItem(libraryCardItem); // Lisää se navigointivalikkoon
 
-        List<MenuEntry> menuEntries = MenuConfiguration.getMenuEntries();
-        menuEntries.forEach(entry -> {
-            if (entry.icon() != null) {
-                nav.addItem(new SideNavItem(entry.title(), entry.path(), new SvgIcon(entry.icon())));
-            } else {
-                nav.addItem(new SideNavItem(entry.title(), entry.path()));
-            }
-        });
+        // Tässä voit lisätä lisää linkkejä muihin näkymiin tarvittaessa
 
         return nav;
     }

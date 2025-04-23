@@ -34,9 +34,8 @@ import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.vaadin.lineawesome.LineAwesomeIconUrl;
 
 @PageTitle("Master-Detail")
-@Route("/:samplePersonID?/:action?(edit)")
+@Route("master-detail/:samplePersonID?/:action?(edit)")
 @Menu(order = 0, icon = LineAwesomeIconUrl.COLUMNS_SOLID)
-@RouteAlias("")
 @Uses(Icon.class)
 public class MasterDetailView extends Div implements BeforeEnterObserver {
 
