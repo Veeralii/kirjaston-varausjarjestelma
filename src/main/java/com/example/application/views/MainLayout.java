@@ -20,10 +20,6 @@ import com.vaadin.flow.server.menu.MenuEntry;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import java.util.List;
 
-/**
- * The main view is a top-level placeholder for other views.
- */
-
 @AnonymousAllowed
 public class MainLayout extends AppLayout {
 
@@ -57,11 +53,9 @@ public class MainLayout extends AppLayout {
 
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
-        // Luo SideNavItem ja lisää siihen RouterLink
         SideNavItem libraryCardItem = new SideNavItem("Library Cards", LibraryCardView.class);
-        nav.addItem(libraryCardItem); // Lisää se navigointivalikkoon
+        nav.addItem(libraryCardItem);
 
-        // Tässä voit lisätä lisää linkkejä muihin näkymiin tarvittaessa
 
         return nav;
     }

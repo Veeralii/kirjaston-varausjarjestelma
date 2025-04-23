@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+// securitypalikka otettu käyttöön
 @Configuration
 public class SecurityConfig extends VaadinWebSecurity {
 
@@ -31,7 +32,7 @@ public class SecurityConfig extends VaadinWebSecurity {
                 )
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers(
-                                new AntPathRequestMatcher("/"), // UIDL-pyynnöt tulevat tänne POSTilla
+                                new AntPathRequestMatcher("/"),
                                 new AntPathRequestMatcher("/VAADIN/**"),
                                 new AntPathRequestMatcher("/frontend/**")
                         )

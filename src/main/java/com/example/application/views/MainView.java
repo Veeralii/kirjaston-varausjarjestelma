@@ -45,16 +45,16 @@ public class MainView extends VerticalLayout {
         if (card != null) {
             resultLabel.setText("Löytyi kortti. ID: " + card.getId() + ", Omistajan ID: " + card.getOwnerId());
 
-            // Tallenna ownerId sessioniin
+            // TallentaawnerId sessioniin
             UI.getCurrent().getSession().setAttribute("ownerId", card.getOwnerId());
 
-            // Luo "Muokkaa henkilötietoja" nappi
+            // Luo "Muokkaa henkilötietoja" - nappi
             Button editButton = new Button("Muokkaa henkilötietoja", e -> {
-                // Navigoi PersonViewiin, joka on se näkymä henkilön tietojen muokkaamista varten
+                // Navigoi PersonViewiin
                 getUI().ifPresent(ui -> ui.navigate("person"));
             });
 
-            // Lisää nappi näkymään
+            // Lisää napin näkymään
             add(editButton);
         } else {
             resultLabel.setText("Korttia ei löytynyt.");
@@ -73,7 +73,7 @@ public class MainView extends VerticalLayout {
         }
     }
     private void navigateToPersonView(Long ownerId) {
-        // Navigoi PersonViewiin, ja välitä ownerId:n arvo
+        // Navigoi PersonViewiin
         getUI().ifPresent(ui -> ui.navigate("person/" + ownerId));
     }
 }

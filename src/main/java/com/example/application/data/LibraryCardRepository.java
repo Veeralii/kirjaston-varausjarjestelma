@@ -4,9 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LibraryCardRepository extends JpaRepository<LibraryCard, Long> {
 
-    // Etsii kirjastokortin kortin numeron perusteella
+    // Etsii kirjastokortin numeron perusteella
     LibraryCard findByCardNumber(String cardNumber);
 
-    // Etsii kirjastokortin omistajan ID:n perusteella
+    // Etsii kirjastokortin omistajan id perusteella
     LibraryCard findByOwnerId(Long ownerId);
 }

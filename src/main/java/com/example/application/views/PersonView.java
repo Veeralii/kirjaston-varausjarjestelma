@@ -46,7 +46,7 @@ public class PersonView extends VerticalLayout {
     }
 
     private void loadPersonData(Long ownerId) {
-        // Haetaan henkilön tiedot SamplePersonService-palvelusta
+        // Haetaan henkilön tiedot samplepersonservicestä
         samplePersonService.get(ownerId).ifPresent(person -> {
             firstNameField.setValue(person.getFirstName());
             lastNameField.setValue(person.getLastName());
@@ -57,31 +57,31 @@ public class PersonView extends VerticalLayout {
     }
 
     private void savePerson() {
-        // Tallenna muutokset personService-palveluun
+        // Tallentaa muutokset personservice palveluun
         String firstName = firstNameField.getValue();
         String lastName = lastNameField.getValue();
         String email = emailField.getValue();
         String phone = phoneField.getValue();
         String occupation = occupationField.getValue();
 
-        // Haetaan olemassa oleva henkilö tietokannasta
+        // Haetaan henkilö tietokannasta
         Long ownerId = (Long) UI.getCurrent().getSession().getAttribute("ownerId");
         SamplePerson person = samplePersonService.get(ownerId).orElse(null);
 
         if (person != null) {
-            // Päivitä olemassa olevan henkilön tiedot
+            // Päivitä olemassa olevan person tiedot
             person.setFirstName(firstName);
             person.setLastName(lastName);
             person.setEmail(email);
             person.setPhone(phone);
             person.setOccupation(occupation);
 
-            // Tallenna päivitetty henkilö takaisin tietokantaan
+            // Tallenna päivitetty person takaisin tietokantaan
             samplePersonService.save(person);
 
             Notification.show("Muutokset tallennettu");
 
-            // Navigoidaan takaisin pääsivulle
+            // Navigoidaan takaisin päänäkymään
             UI.getCurrent().navigate("");
         } else {
             Notification.show("Henkilöä ei löytynyt.");

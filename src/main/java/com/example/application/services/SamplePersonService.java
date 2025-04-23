@@ -3,7 +3,7 @@ package com.example.application.services;
 import com.example.application.data.SamplePerson;
 import com.example.application.data.SamplePersonRepository;
 import com.example.application.data.LibraryCard;
-import com.example.application.services.LibraryCardService; // Lisää tämä import
+import com.example.application.services.LibraryCardService;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,15 +14,13 @@ import org.springframework.stereotype.Service;
 public class SamplePersonService {
 
     private final SamplePersonRepository repository;
-    private final LibraryCardService libraryCardService; // Lisää tämä kenttä
-
-    // Lisää LibraryCardService konstruktorin kautta
+    private final LibraryCardService libraryCardService;
     public SamplePersonService(SamplePersonRepository repository, LibraryCardService libraryCardService) {
         this.repository = repository;
         this.libraryCardService = libraryCardService;
     }
 
-    // Henkilön hakeminen ID:n perusteella
+    // Henkilön hakeminen id perusteella
     public Optional<SamplePerson> get(Long id) {
         return repository.findById(id);
     }
@@ -37,12 +35,12 @@ public class SamplePersonService {
         repository.deleteById(id);
     }
 
-    // Henkilöiden listaus sivutettuna
+    // Henkilöiden listaus
     public Page<SamplePerson> list(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
-    // Henkilöiden listaus suodatettuna
+    // Henkilöiden listaus suodatus
     public Page<SamplePerson> list(Pageable pageable, Specification<SamplePerson> filter) {
         return repository.findAll(filter, pageable);
     }
@@ -52,7 +50,7 @@ public class SamplePersonService {
         return (int) repository.count();
     }
 
-    // Kirjastokortin lisääminen henkilölle
+    // Kirjastokortin lisääminen henkilölle (en tehnyt loppuun)
     public void addLibraryCardToPerson(Long personId, String cardNumber) {
         Optional<SamplePerson> personOpt = repository.findById(personId);
         if (personOpt.isPresent()) {
@@ -68,7 +66,7 @@ public class SamplePersonService {
         }
     }
 
-    // Kirjastokortin poistaminen henkilön ID:llä ja kortin numerolla
+    // Kirjastokortin poistaminen henkilön id ja kortin numerolla
     public void deleteLibraryCard(Long personId, String cardNumber) {
         Optional<SamplePerson> personOpt = repository.findById(personId);
         if (personOpt.isPresent()) {
